@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="http://localhost:7000/socket.io/socket.io.js"></script>
+  <title>Emblem</title>
+</head>
+<body>
+
+<script>
+
+var socket = io('http://localhost:7000');
+socket.on('connect', () => {
+  socket.emit('subscribe', {
+      collection: "messages", 
+      query: {
+          worldId: "dm|alison|max"
+      }
+  })
+})
+
+</script>
+
+</body>
+</html>

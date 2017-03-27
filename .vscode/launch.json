@@ -8,6 +8,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Launch Tests",
+            "program": "${workspaceRoot}/node_modules/.bin/_mocha",
+            "args": [
+                "dist/**/*.js"
+            ],
+            "preLaunchTask": "default",
+            "sourceMaps": true,
+			"outFiles": ["${workspaceRoot}/dist/**/*"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}/dist/server.js",
             "preLaunchTask": "default",

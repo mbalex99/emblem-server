@@ -1,11 +1,26 @@
 import * as express from 'express'
-import { createServer } from 'http'
-import * as io from 'socket.io'
+import * as http from 'http'
+import * as SocketIO from 'socket.io'
+import * as bodyParser from 'body-parser'
+import * as cors from 'cors'
+import * as sift from 'sift'
 
-var app = express()
-var server = createServer(app)
+const app = express()
+var server = http.createServer(app)
+export var io = SocketIO(server);
 
-var port: number = process.env.PORT || 6000;
-server.listen(port, () => {
-    console.log('The app is now listing on port: ', port);
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false })) // parse application/x-www-form-urlencoded
+app.use(bodyParser.json()) // parse application/json
+app.get('/', (req, res) => {
+    res.json({ hey: "imWorking!" })
+})
+
+import { registerSocket } from './register'
+
+io.on('connection', registerSocket)
+
+const port: number = process.env.PORT || 7000
+server.listen(port, (err) => {
+    console.log('The app is now listing on port:', port)
 })
