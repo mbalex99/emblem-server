@@ -5,7 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "node_modules/.bin/gulp --gulpfile gulpfile.js build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build && node_modules/.bin/_mocha dist/**/*.spec.js",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",

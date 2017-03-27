@@ -11,7 +11,7 @@
             "name": "Launch Tests",
             "program": "${workspaceRoot}/node_modules/.bin/_mocha",
             "args": [
-                "dist/**/*.js"
+                "dist/**/*.spec.js"
             ],
             "preLaunchTask": "default",
             "sourceMaps": true,
