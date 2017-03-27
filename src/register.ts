@@ -1,7 +1,7 @@
 import * as SocketIO from 'socket.io'
 import * as sift from 'sift'
 
-var subscriptions: { [subscriptionId: string] : { sockets: Set<SocketIO.Socket>, query: any, collection: string } } =  {}
+export var subscriptions: { [subscriptionId: string] : { sockets: Set<SocketIO.Socket>, query: any, collection: string } } =  {}
 
 function generateSubscriptionId(collection: string, query: any): string{
     var queryId = JSON.stringify(query || {});
