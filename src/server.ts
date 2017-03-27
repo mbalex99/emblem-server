@@ -6,7 +6,7 @@ import * as cors from 'cors'
 import * as sift from 'sift'
 
 const app = express()
-var server = http.createServer(app)
+export var server = http.createServer(app)
 export var io = SocketIO(server);
 
 app.use(cors())
@@ -20,7 +20,11 @@ import { registerSocket } from './register'
 
 io.on('connection', registerSocket)
 
-const port: number = process.env.PORT || 7000
-server.listen(port, (err) => {
-    console.log('The app is now listing on port:', port)
-})
+if(!module.parent){
+    const port: number = process.env.PORT || 7000
+    server.listen(port, (err) => {
+        console.log('The app is now listing on port:', port)
+    })
+}
+
+
