@@ -16,6 +16,7 @@
     "@types/express": "^4.0.35",
     "@types/mocha": "^2.2.40",
     "@types/socket.io": "^1.4.29",
+    "@types/socket.io-client": "^1.4.29",
     "@types/superagent": "^2.0.36",
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
@@ -33,6 +34,7 @@
     "cors": "^2.8.1",
     "express": "^4.15.2",
     "sift": "^3.2.7",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3"
   }
 }
